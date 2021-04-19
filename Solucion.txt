@@ -38,6 +38,10 @@ class Tipo {
   }
 }
 
+class Color {
+  var nombre;
+}
+
 class Validador{
   
   method queNoSeaNulo(objeto,exepcion){
