@@ -12,6 +12,7 @@ class Prenda {
       Validador.queNoSeaNulo(categoria, "Falta Categoria");
       Validador.queNoSeaNulo(material, "Falta Material");
       Validador.queNoSeaNulo(colorPrincipal, "Falta Color Principal");
+      Validador.categoriaCondiceConTipo(categoria, tipoPrenda, "No se condice la categoria con su tipo");
       
       this.tipoPrenda = tipoPrenda;
       this.categoria = categoria;
@@ -24,12 +25,32 @@ class Prenda {
     }
 }
 
+enum Categoria {
+  PARTE_SUPERIOR, PARTE_INFERIOR, CALZADO, ACCESORIOS
+}
+
+class Tipo {
+  var nombreTipo;
+  var categoria;
+  
+  method getCategoria(){
+    return categoria;
+  }
+}
+
 class Validador{
   
   method queNoSeaNulo(objeto,exepcion){
     if(objecto == null){
       throw new Exeption(exepcion);
     }
+  }
+  
+  method categoriaCondiceConTipo(categoria,tipo,mensaje){
+    if(categoria != tipo.categoriaPrenda){
+      throw new Exeption(exepcion);
+    }
+    
   }
 }
 
@@ -38,3 +59,8 @@ class Atuendo {
 }
 
 
+ACLARACIONES:
+Decido hacer un constructor en el que se validan que no sean nulos los atributos que si o si tienen que estar.
+Agrego una validacion tambien para el ultimo requerimiento (nose si esta bien planteado), me fijo que sean iguales
+tanto la categoria en la prenda, como la categoria en el tipo de la prenda.
+Para el caso del color secundario que es opcional lo agrego mediante un setter.
