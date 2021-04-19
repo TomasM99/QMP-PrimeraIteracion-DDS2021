@@ -1,1 +1,40 @@
 
+class Prenda {
+  var tipoPrenda;
+  var categoria;
+  var material;
+  var colorPrincipal;
+  var colorSecundario;
+  
+    constructor(tipoPrenda,categoria,material,colorPrincipal){
+      
+      Validador.queNoSeaNulo(tipoPrenda,"Falta Tipo");
+      Validador.queNoSeaNulo(categoria, "Falta Categoria");
+      Validador.queNoSeaNulo(material, "Falta Material");
+      Validador.queNoSeaNulo(colorPrincipal, "Falta Color Principal");
+      
+      this.tipoPrenda = tipoPrenda;
+      this.categoria = categoria;
+      this.material = material;
+      this.colorPrincipal = colorPrincipal;
+    }
+    
+    method setColorSecundario(color){
+      colorSecundario = color;
+    }
+}
+
+class Validador{
+  
+  method queNoSeaNulo(objeto,exepcion){
+    if(objecto == null){
+      throw new Exeption(exepcion);
+    }
+  }
+}
+
+class Atuendo {
+  var prendas = [];
+}
+
+
