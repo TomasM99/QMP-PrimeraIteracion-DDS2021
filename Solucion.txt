@@ -50,7 +50,7 @@ class Validador{
     }
   }
   
-  method categoriaCondiceConTipo(categoria,tipo,mensaje){
+  method categoriaCondiceConTipo(categoria,tipo,exepcion){
     if(categoria != tipo.categoriaPrenda){
       throw new Exeption(exepcion);
     }
