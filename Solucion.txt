@@ -12,6 +12,7 @@ class Prenda {
       Validador.queNoSeaNulo(categoria, "Falta Categoria");
       Validador.queNoSeaNulo(material, "Falta Material");
       Validador.queNoSeaNulo(colorPrincipal, "Falta Color Principal");
+      // aca podemos aplicar checkNotNull(valor,mensaje)
       Validador.categoriaCondiceConTipo(categoria, tipoPrenda, "No se condice la categoria con su tipo");
       
       this.tipoPrenda = tipoPrenda;
@@ -39,13 +40,15 @@ class Tipo {
 }
 
 class Color {
-  var nombre;
+  var rojo;
+  var verde;
+  var azul;
 }
 
 class Validador{
   
   method queNoSeaNulo(objeto,exepcion){
-    if(objecto == null){
+    if(!objecto){
       throw new Exeption(exepcion);
     }
   }
@@ -68,3 +71,9 @@ Decido hacer un constructor en el que se validan que no sean nulos los atributos
 Agrego una validacion tambien para el ultimo requerimiento (nose si esta bien planteado), me fijo que sean iguales
 tanto la categoria en la prenda, como la categoria en el tipo de la prenda.
 Para el caso del color secundario que es opcional lo agrego mediante un setter.
+
+ACLARACIONES DE CLASE:
+El tipo de prenda y el material los codificaron con enums. El color esta modelado como una clase
+para que podamos poner los valores del calor en rgb. En java existe checkNotNull(), sino codificarla.
+Para el color secundario se puede sobrecargar el constructor.
+
